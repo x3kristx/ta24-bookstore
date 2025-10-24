@@ -2,7 +2,7 @@
 
 // var_dump($_POST);
 
-if (isset($_POST['action-submit']) && isset($_POST['user-name']) ) {
+if ( isset($_POST['action-submit']) && isset($_POST['user-name']) ) {
 
     $user = $_POST["user-name"];
 
@@ -10,23 +10,24 @@ if (isset($_POST['action-submit']) && isset($_POST['user-name']) ) {
 
 $names = ['Tiit', 'Taavi', 'Tõnu', 'Madis', 'Rainer'];
 
-foreach ($names as $key => $name ) {
-    echo ($key +1) . ". {$name}<br>";
+foreach ( $names as $key => $name ) {
+    echo ($key + 1) . ". {$name}<br>";
 }
 
 for ( $i = 0; $i < count($names); $i++ ) {
-    echo ($i +1) . ". {$names[$i]}<br>";
-
+    echo ($i + 1) . ". {$names[$i]}<br>";
 }
 
 $i = 0;
-while ( $i < count($names) ) {
-    echo ($i +1) . ". {$names[$i]}<br>";
+while ( $i < count($names) )  {
+    echo ($i + 1) . ". {$names[$i]}<br>";
     $i++;
 }
 
+$i = 0;
 do {
-
+    echo ($i + 1) . ". {$names[$i]}<br>";
+    $i++;
 } while ( $i < count($names) );
 
 ?>
@@ -40,19 +41,18 @@ do {
 </head>
 <body>
     
-    <form action="./hello.php" method="post">
+    <form action="./hello.php" method="GET">
 
         <label for="user">Nimi:</label>
         <input type="text" name="user-name" id="user">
-        <input type="submit" name="action-submit" value="Enter">
+        <input type="submit" name="action-submit" value="Saada">
     </form>
+
     <?php if ( isset($user) ) { ?>
-
-        Hello <?= $user; ?>!
-
+        
+        Hello, <?= $user; ?>!
+        
     <?php } ?>
-    
-
 
 </body>
 </html>
